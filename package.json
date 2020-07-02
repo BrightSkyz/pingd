@@ -1,5 +1,5 @@
 {
-  "name": "pingd-server",
+  "name": "pingd",
   "version": "1.0.0",
   "description": "The server for the Pingd website.",
   "main": "dist/index.js",
