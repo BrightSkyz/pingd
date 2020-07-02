@@ -13,7 +13,7 @@ import {Route} from "./types/Route";
 import {ApiResponseBuilder} from "./types/ApiResponseBuilder";
 import {RequestMethod} from "./types/RequestMethod";
 
-const {SERVER_PORT, SERVER_DEBUG_MODE, SERVER_FORCE_SSL, SERVER_SSL, SERVER_SSL_CERT, SERVER_SSL_KEY, SERVER_SSL_CA_CERT, CORS_ORIGINS} = process.env;
+const {SERVER_HOST, SERVER_PORT, SERVER_DEBUG_MODE, SERVER_FORCE_SSL, SERVER_SSL, SERVER_SSL_CERT, SERVER_SSL_KEY, SERVER_SSL_CA_CERT, CORS_ORIGINS} = process.env;
 
 export class WebModule extends Module {
 
@@ -70,7 +70,7 @@ export class WebModule extends Module {
       const apiResponseBuilder = ApiResponseBuilder.createError(404, "Not found.", res);
       apiResponseBuilder.send();
     });
-    this.webServer.listen(Number(SERVER_PORT), () => {
+    this.webServer.listen(Number(SERVER_PORT), String(SERVER_HOST), () => {
       console.log("[i] Web server is listening on port: " + SERVER_PORT);
     });
   }
