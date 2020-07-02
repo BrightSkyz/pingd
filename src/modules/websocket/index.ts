@@ -37,7 +37,7 @@ export class WebSocketModule extends Module {
               if (type == "ping") {
                 this.runCommandAndSendOutput(ws, "ping", ["-c", "8", "-i", "0.2", "-t", "255", data]);
               } else if (type == "traceroute") {
-                this.runCommandAndSendOutput(ws, "traceroute", ["-A", "-q5", "-w", "2", "-m", "30", data]);
+                this.runCommandAndSendOutput(ws, "traceroute", ["-q5", "-w", "2", "-m", "30", data]);
               } else if (type == "mtr") {
                 this.runCommandAndSendOutput(ws, "mtr", ["-zboLDRSNBAWVGJMXI", "-rwc10", "-i", "0.2", "-m", "50", data]);
               } else {
